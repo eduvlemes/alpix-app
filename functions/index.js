@@ -123,16 +123,16 @@ recursiveReadDir(routesDir).filter(filepath => filepath.endsWith('.js')).forEach
     if (middleware) {
       router[method](filename, (req, res) => {
         console.log(`${method} ${filename}`)
-        prepareAppSdk().then(appSdk => {
-          middleware({ appSdk, admin }, req, res)
-        }).catch(err => {
-          console.error(err)
-          res.status(500)
-          res.send({
-            error: 'SETUP',
-            message: 'Can\'t setup `ecomAuth`, check Firebase console registers'
-          })
-        })
+        //prepareAppSdk().then(appSdk => {
+          middleware({ admin }, req, res)
+        //}).catch(err => {
+//          console.error(err)
+          //res.status(500)
+          //res.send({
+//            error: 'SETUP',
+            //message: 'Can\'t setup `ecomAuth`, check Firebase console registers'
+          //})
+        //})
       })
     }
   }

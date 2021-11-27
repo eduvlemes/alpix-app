@@ -4,7 +4,9 @@
 exports.post = ({admin}, req, res) => {  
   const { storeId, params } = req.body  
  
-  admin.firestore().doc(`theme_settings/${storeId}`).set(params)
+  admin.firestore().doc(`theme_settings/${storeId}`).set({
+    data: params
+  })
   .then(function(){
     res.send({error:false})
   })  
